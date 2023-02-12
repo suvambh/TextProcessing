@@ -19,11 +19,27 @@ The code performs the following steps to process the data:
 5. Removes the top N frequent words
 
 ## Classes and Methods
-### DataProcessor
-The DataProcessor class takes the data frame as an input and performs the following operations:
-- `sort_words_in_language`: This method takes the language and the column name as inputs and returns a list of tuples containing words and their frequency.
-- `plot_word_frequencies`: This method takes two inputs - the list of top words and the sorted words. It plots a bar graph of the frequency of the top words and a histogram of the frequency distribution of all words.
-- `remove_frequent_words`: This method removes the top N frequent words from the data frame.
 
-## Conclusion
-This code pipeline provides a simple and straightforward solution to process a data frame containing names and performs several common data processing operations like sorting, plotting and removing frequent words. This can be a good starting point for further data processing and analysis.
+
+
+### DataToMap
+The DataToMap is a Python class that allows you to convert data stored in a Pandas DataFrame into a word frequency mapping. This class can be used to analyze text data and extract meaningful insights from it.
+
+#### Class Constructor
+The constructor for the class takes two arguments:
+
+1. df : a pandas DataFrame object
+2. column_name : a string representing the column name in the DataFrame to be analyzed
+#### Methods
+The class includes several methods:
+
+1. map_data : splits the data stored in the specified column of the DataFrame and stores the words and their indices in separate lists.
+2. create_word_df : creates a DataFrame to store the word data.
+3. group_word_df : groups the words based on the frequency of their appearance.
+4. count_frequency : adds a column to the DataFrame to store the frequency of each word.
+5. search : returns the row from the original DataFrame where the specified word appears.
+6. add_is_number_column : adds a column to the DataFrame to indicate whether each word is a number or not.
+7. describe_df : prints some information about the DataFrame.
+8. Main Function
+The main function creates an instance of the class, applies the methods on the data and prints some information about the resulting word frequency mapping DataFrame.
+
