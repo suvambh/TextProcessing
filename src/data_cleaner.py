@@ -22,11 +22,12 @@ class TextProcessing:
         self.df.to_csv('normalised2.csv', index=False)
         self.df_imported = pd.read_csv('../csv_data_cleaned/normalised2.csv')
 
-file_path = "/data/Case_study_names_mapping.xlsx"
-# Initialize the TextProcessing class with the file path
-text_processor = TextProcessing(file_path)
-# Call the preprocess, lemmatize, and detect_language methods
-text_processor.preprocess()
-text_processor.detect_language()
-# Save the processed data
-text_processor.save()
+
+if __name__ == '__main__':
+    file_path = "/data/Case_study_names_mapping.xlsx"
+    # Initialize the TextProcessing class with the file path
+    text_processor = TextProcessing(file_path)
+    text_processor.preprocess()
+    text_processor.detect_language()
+    # Save the processed data
+    text_processor.save()
