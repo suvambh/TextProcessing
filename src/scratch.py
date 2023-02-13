@@ -51,6 +51,31 @@ def name_from_df(word, word_df, df):
     else:
         return df.loc[index_list[0]]
 
+def probabilistically_guess_company(name, df, word_df, threshold=0.5):
+    """Return a probable company name based on word frequency"""
+    # Get the list of words in the name
+    words = name.split()
+    # Create a dictionary to store the frequency of each company name
+    frequency = defaultdict(int)
+
+    # Loop through each word in the list
+    for word in words:
+        word_row = word_df.loc[word_df['word'] == word]
+        if word_row.empty:
+            continue
+        print(word_row['Appearances'])
+        company_indices = word_row['Appearances']
+        for index in company_indices:
+            #print(word_row['frequency'].index)
+            #print("name", df['Raw name'].to_list()[0])
+            frequency[df.iloc[index]['Raw name'].to_list()[0]] += word_row.iloc[0]['frequency']
+    # Normalize the frequency values
+    total_frequency = sum(frequency.values())
+    for key in frequency:
+        frequency[key] /= total_frequency
+    # Get the most probable company name based on frequency
+    most_probable = max(frequency, key=frequency.get)
+    return most_probable
 
 def create_tag_df(word_df):
     # Select words with frequency = 1
