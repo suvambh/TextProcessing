@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+
 class DataToMap:
     def __init__(self, df, column_name):
         self.df = df
@@ -49,9 +50,3 @@ class DataToMap:
         print(f"\nFirst 2 rows of the dataframe :\n {self.word_df.head(2)}")
         print(f"\nSize of the dataframe : {self.word_df.shape}")
         print(f"\nExamples from rows n1 to n2:\n {self.word_df[n1:n2]}")
-
-
-
-
-
-
