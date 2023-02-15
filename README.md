@@ -1,6 +1,7 @@
 # Text Processing 
 # Introduction
 This is a code repository for a data processing project that analyzes and modifies file of names of companies. 
+Link to presentation : https://docs.google.com/presentation/d/18eJFsMjpc07ElHKWATNXz3ByjAQ2wMm1kULWs11wr78/edit?usp=sharing
 
 # Intuition 
 This algorithm aims to predict the most probable company name based on word frequency and a fuzzy matching score. The input to the algorithm is a company name, which is split into individual words. The algorithm then searches a pre-existing database for each word, looking for a match in the company names. For each match, the algorithm computes a score that combines the frequency of the word in the company name and a fuzzy matching score that quantifies the similarity between the input name and the company name. The scores are weighted by parameters a, b, p, and q to control the importance of each factor.
